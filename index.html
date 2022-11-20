@@ -1,64 +1,90 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Title</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" type="text/css" href="style.css"/>
-  </head>
 
-  <body>
+<head>
+    <title>IPv6: The future!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
     <!-- Presentation Begin -->
+
     <textarea id="source" style="visibility: hidden;">
 
 class: center, middle
 
-# Title
+# IPv6: Networking of the future!
+##### A blast from the past!
 
-This is the first slide
-[//]: # (and this is a comment that isn't shown in the slide)
-
----
-
-# Stuff to remember
-
-1. Press "P" for presentation mode
-    - Press "T" to reset timer
-2. Press "C" to clone window
-3. Press "H" to view help
-
-???
-Oh yeah, it's also possible to include notes!
+#### By: Johannes Draaijer @ Mobilaris AB
 
 ---
 
-class: left
+class: left,middle
 
-# Simple and easy
+# About me
 
-```javascript
-console.log("It's markdown. How much simpler can it get?")
-```
+* Currently work at Mobilaris as an Embedded Software Engineer
+* Studied Network security (and network engineering) at Linnaeus University
+* Networking enthousiast
 
-MathJax is also supported!
+---
 
-\\( \bar{x} \\) or \\( \hat{x} \\)
-<br/>
-$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}$$
-<br/>
-<br/>
-<br/>
-**[RemarkPortable](https://github.com/BenTearzz/RemarkPortable)**, created from the project **[Remark](https://github.com/gnab/remark)** 
+class: left,middle
 
-[![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+# Index
+* A quick introduction to IP, IPv4, and IPv6.
+* The improvements that IPv6 offers over IPv4
+        * on the protocol level.
+        * on the network-management level.
+        * on the business level.
+        * on the internet level.
+* How can we adopt IPv6?
 
-.footnote[.red[*] You can also include a footnote! ]
+---
 
-    </textarea>
-    <!-- Presentation End -->
+class: left,middle
 
+# What is IP?
+
+* Internet Protocol.
+* Standardizes the way that information traverses the internet.
+* Two formal standards: v4 and v6.
+
+---
+
+class: left,middle
+
+# IPv4
+
+* Standard published in 1981.
+* Address space: \\(32\\) bits, for a total of \\(2^{32} = 4294967296\\) addresses.
+* Non-extendable header.
+* Price for a single IPv4 address: 50 USD.
+* Universally deployed & supported.
+
+---
+
+class: left,middle
+
+# IPv6
+
+* Standard published in 1995
+* Address space: \\(128\\) bits, for a total of \\(2^{128} = 340282366920938463463374607431768211456 = 3.4 x 10^{29}\\) (a _lot_)
+* Extension headers.
+* Price for a single IPv6 address: free.
+* Universally supported & widely deployed in enterprise setting, but lower deployment in consumer environments.
+
+
+</textarea>
+
+<!-- Presentation End -->
+
+    <!--
     <button type="button" id="load" onclick="loadContent()">Load Content</button>
     <input type="file" id="file" onchange="loadFile(event)">
-
+    -->
     <!-- Load Plugins -->
     <script src="./assets/plugins/MathJax/MathJax.js?config=TeX-AMS_HTML-full" type="text/javascript"></script>
     <!-- Load Plugins -->
@@ -67,5 +93,6 @@ $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}$$
     <script src="./assets/scripts/remark.min.js"></script>
     <script src="./main.js"></script>
     <!-- Build Slide -->
-  </body>
+</body>
+
 </html>
