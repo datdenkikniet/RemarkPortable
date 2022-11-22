@@ -1,32 +1,97 @@
-@font-face{
-  font-family: 'Droid Serif';
-  src: url('./fonts/DroidSerif.ttf');
+@font-face {
+    font-family: 'Droid Serif';
+    src: url('./fonts/DroidSerif.ttf');
 }
 
-@font-face{
-  font-family: 'Yanone Kaffeesatz';
-  src: url('./fonts/YanoneKaffeesatz.otf');
+@font-face {
+    font-family: 'Yanone Kaffeesatz';
+    src: url('./fonts/YanoneKaffeesatz.otf');
 }
 
-@font-face{
-  font-family: 'Ubuntu Mono';
-  src: url('./fonts/UbuntuMono.ttf');
+@font-face {
+    font-family: 'Ubuntu Mono';
+    src: url('./fonts/UbuntuMono.ttf');
 }
 
-body { font-family: 'Droid Serif'; }
-
-h1, h2, h3 {
-  font-family: 'Yanone Kaffeesatz';
-  font-weight: normal;
+body {
+    font-family: 'Droid Serif';
 }
 
-.remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+h1,
+h2,
+h3 {
+    font-family: 'Yanone Kaffeesatz';
+    font-weight: normal;
+}
 
-.red {color: red;}
+.remark-code,
+.remark-inline-code {
+    font-family: 'Ubuntu Mono';
+}
 
-.footnote { 
-	font-family: 'Ubuntu Mono';
-	position: absolute;
-	left: 5%;
-	bottom: 5%;
+.red {
+    color: red;
+}
+
+.footnote {
+    font-family: 'Ubuntu Mono';
+    position: absolute;
+    left: 5%;
+    bottom: 5%;
+}
+
+/* Two-column layouts */
+.left-column {
+    width: 20%;
+    float: left;
+}
+
+.right-column {
+    width: 80%;
+    float: right;
+}
+
+.left-column-33 {
+    width: 33%;
+    float: left;
+}
+
+.right-column-66 {
+    width: 66%;
+    float: right;
+}
+
+.left-column-66 {
+    width: 66%;
+    float: left;
+}
+
+.right-column-33 {
+    width: 33%;
+    float: right;
+}
+
+.right-column~p {
+    clear: both;
+}
+
+.right-column~ul {
+    clear: both;
+}
+
+.left-column h4 {
+    color: gray;
+}
+
+.left-column h4:last-of-type {
+    color: black;
+}
+
+.remark-slide-container h4 {
+    color: gray;
+}
+
+
+.remark-slide-container h4:last-of-type {
+    color: black;
 }
