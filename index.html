@@ -46,6 +46,7 @@ class: left,middle
 * Migrating to or supporting IPv6
     * Using dual-stack IPv6
     * Using NAT64
+
 ---
 
 .left-column[
@@ -67,7 +68,7 @@ class: left,middle
 
 .right-column[
 * Standard published in 1981.
-* Address space: 32 bits, for a total of $$2^{32} = 4294967296$$ addresses.
+* Address space: 32 bits, for a total of $$2^{32} = 4.3 billion$$ addresses.
 * Non-extendable header.
 * Price for a single public IPv4 address: 50 USD.
 * Universally deployed & supported.
@@ -84,34 +85,13 @@ class: left,middle
 .right-column[
 * Standard published in 1995.
 * "New", but not that different.
-* Address space: 128 bits, for a total of $$2^{128} = 3.4 x 10^{28} = 340282366920938463463374607431768211456$$ addresses (a _lot_)
+* Address space: 128 bits, for a total of $$2^{128} = 3.4 x 10^{28} = 340 unidecillion$$ addresses (a _lot_)
 * Extension headers.
 * Price for a single IPv6 address: free.
-* Universally supported & widely deployed in enterprise setting, but lower deployment in consumer environments.
+* Universally supported & widely deployed in enterprise setting, but lower deployment & support in consumer environments.
 ]
 ---
 
-class: left,middle
-
-## Some networking lingo
-
-* Private and Public IP address.
-* Network Address translation.
-* Network mask. 
-    * `192.168.0.0/24` -> mask is `/24` = 255.255.255.0 = 24 bits of network, 8 bits of host.
-    * `2001:2043:dc02:7500::/60` -> mask is `/60` = 60 bits of network, 68 bits of host
-
-???
-
-A private address is an IP address that is barred from being routed on the public internet. Public addresses, on the other hand, are addresses that _can_ be routed on
-the internet.
-
-Network Address Translation, also known as NAT. It is a technique that can be used to map multiple private IP addresses to a single public IP, so that machines
-using private IP addresses can still talk to the rest of the internet. 
-
-Network mask: a mask that indicates which of the bits in an address make up the network part of the address, and which bits make up the host part.
-
----
 .left-column66[
 ### Benefits of IPv6
 #### The protocol
@@ -130,6 +110,50 @@ Network mask: a mask that indicates which of the bits in an address make up the 
 Important: mention that addresses are no longer rare, so you should use the bits you have!
 
 ---
+
+class: left,middle
+
+## Some networking lingo
+
+* Network mask.
+    * `/24` in ipv4: 24 bits of network, 8 bits of host
+    * `/24` in ipv6: 24 bits of network, 106 bits of host
+* Private and Public IP address.
+    * `192.168.0.0/24`, `10.0.0.0/8`, etc. in IPv4.
+    * `fe80::/10` in IPv6 (link local).
+* Address space depletion.
+* Network Address translation.
+    * NAT reflection.
+    * P2P networking practically impossible.
+
+![](https://integratingit.files.wordpress.com/2021/07/071121_1331_ftdnatrefle1.png)
+
+???
+
+Network mask: a mask that indicates which of the bits in an address make up the network part of the address, and which bits make up the host part.
+
+A private address is an IP address that is barred from being routed on the public internet. Public addresses, on the other hand, are addresses that _can_ be routed on
+the internet.
+
+Address space depletion.
+
+Network Address Translation, also known as NAT. It is a technique that can be used to map multiple private IP addresses to a single public IP, so that machines
+using private IP addresses can still talk to the rest of the internet.
+
+NAT is a workaround, and requires more workarounds. It usually works for the consumer, but diagnosing problems with it is hard, as it hides the true origin
+and destination of network traffic, unless you have access to the stateful NAT table in the device performing NAT.
+
+NAT reflection. If two devices are on the same private network, behind a device that performs NAT, connecting to the public address requires that
+the device that performs NAT is somehow involved in the exchange.
+
+With NAT, P2P networking is practically impossible. Multiple nodes can only be reached by multiplexing over different ports on the transport layer (TCP & UDP), making
+it impossible for those numbers to be predictable unless they are coordinated in some always-online, centralized system. P2P may decrease traffic through bottlenecked
+connections.
+
+Important: NAT != secure (only if you trust your ISP more than a VPN provider).
+
+---
+
 .left-column66[
 ### Benefits of IPv6
 #### The protocol
@@ -138,12 +162,10 @@ Important: mention that addresses are no longer rare, so you should use the bits
 
 * No more NAT.
 * SLAAC, NDP, DAD mean more plug-and-play configuration.
-* Everything with an IPv6 address can be globally reachable.
+* More opportunity for global reachability.
 * No more broadcast traffic.
 
 ???
-
-Important: NAT != secure (only if you trust your ISP more than a VPN provider)
 
 ---
 .left-column66[
@@ -153,7 +175,7 @@ Important: NAT != secure (only if you trust your ISP more than a VPN provider)
 #### For the internet
 ]
 
-* Massively reduced global routing table. (From 500000 routed prefixes down to 21000)
+* Reduced global routing table. (From 500000 routed prefixes down to 21000)
 
 ---
 
@@ -161,26 +183,18 @@ Important: NAT != secure (only if you trust your ISP more than a VPN provider)
 ### Benefits of IPv6
 #### The protocol
 #### Network management
+#### For the internet
 #### For a business
 ]
 
 * Less work overall.
 * IPv6 addresses are (practically) free.
 * World is moving towards IPv6, lagging after may be bad!
+* Large downside: transitioning takes quite some time & effort.
 
 ???
 
 Explain chicken-and-egg problem with switching to IPv6.
-
----
-
-.left-column66[
-### Migrating to IPv6
-]
-
-* NAT64
-* Dual stack
-
 
 ---
 .left-column66[
@@ -189,8 +203,10 @@ Explain chicken-and-egg problem with switching to IPv6.
 ]
 
 * Uses the address range range `64:ff9b::/96`.
-* Requires DNS64 setup that returns IPv4 addresses mapped to that range.
+* Requires DNS64 setup that returns IPv4 addresses mapped into that range.
 * Stateful.
+
+![](https://www.researchgate.net/profile/Gabor-Lencse/publication/299405560/figure/fig3/AS:667671179849730@1536196622082/The-operation-of-the-DNS64-NAT64-solution-an-IPv6-only-client-communicates-with-and-IPv4.png)
 
 ---
 .left-column66[
@@ -203,6 +219,35 @@ Explain chicken-and-egg problem with switching to IPv6.
 * IPv4 addresses are mapped to and from IPv6 addresses by the OS.
 * Uses the range `0:0:0:0:0:ffff/96`.
 * Dual stack may mean more network to look after, but lower barrier to entry.
+
+---
+
+.left-column66[
+### Migrating to IPv6
+#### NAT64
+#### Dual stack
+]
+
+Before: 
+```
+socket = openIpv4Socket("0.0.0.0", 80);
+```
+Allows only IPv4 clients to connect, node is required to have only IPv4 address.
+
+After:
+```
+socket = openIpV6Socket("::", 80);
+```
+1. If node has IPv6 address, allows IPv6 clients to connect.
+2. If node has IPv4 address & OS has dual-stack support, allows IPv4 clients to connect.
+    * IPv4 client from 155.132.142.33 will appear to connect as `::ffff:9b84:8f21`.
+3. Done!
+
+---
+
+class: center,middle
+
+# Questions?
 
 
 </textarea>
