@@ -23,11 +23,13 @@ class: center, middle
 
 class: left,middle
 
-# About me
+# Welcome!
 
-* Currently work at Mobilaris as an Embedded Software Engineer
-* Studied Network security (and network engineering) at Linnaeus University
-* Networking enthousiast
+# A little bit about me
+
+* Currently work at Mobilaris Industrial Solutions as an Embedded Software Engineer.
+* Studied Network security (and network engineering) at Linnaeus University.
+* Networking & sysadmin enthousiast. 
 
 ---
 
@@ -60,6 +62,10 @@ class: left,middle
 * Two formal standards: v4 and v6.
 ]
 
+???
+
+IPv5: experimental standard that tried to expand IPv4, only by means of extra protocol support for streaming.
+
 ---
 
 .left-column[
@@ -73,11 +79,14 @@ class: left,middle
 * Non-extendable header.
 * Price for a single public IPv4 address: 50 USD.
 * Universally deployed & supported.
+* Individual addresses easy to remember.
 ]
 
 ???
 
 Practically any device that has internet access supports IPv4. Smart TVs, computers, phones, other IoT devices, anything that supports WiFi, etc. 
+
+Defense Advanced Research Projects Agency (DARPA)
 
 ---
 
@@ -100,7 +109,9 @@ Practically any device that has internet access supports IPv4. Smart TVs, comput
 
 IPv6 is supported by most newer devices (mobile phones & 4G, enterprise gear, etc.) and used in mobile networks. Older consumer devices may not support it.
 
---- 
+---
+
+class: left,middle
 
 ## Some networking lingo
 
@@ -120,30 +131,23 @@ IPv6 is supported by most newer devices (mobile phones & 4G, enterprise gear, et
 ???
 
 Network mask: a mask that indicates which of the bits in an address make up the network part of the address, and which bits make up the host part.
-
 A private address is an IP address that is barred from being routed on the public internet. Public addresses, on the other hand, are addresses that _can_ be routed on
 the internet.
-
 Address space depletion.
-
 Network Address Translation, also known as NAT. It is a technique that can be used to map multiple private IP addresses to a single public IP, so that machines
 using private IP addresses can still talk to the rest of the internet.
-
 NAT is a workaround, and requires more workarounds. It usually works for the consumer, but diagnosing problems with it is hard, as it hides the true origin
 and destination of network traffic, unless you have access to the stateful NAT table in the device performing NAT.
-
 NAT reflection. If two devices are on the same private network, behind a device that performs NAT, connecting to the public address requires that
 the device that performs NAT is somehow involved in the exchange.
-
 With NAT, P2P networking is practically impossible. Multiple nodes can only be reached by multiplexing over different ports on the transport layer (TCP & UDP), making
 it impossible for those numbers to be predictable unless they are coordinated in some always-online, centralized system. P2P may decrease traffic through bottlenecked
 connections.
-
 Important: NAT != secure (only if you trust your ISP more than a VPN provider).
 
 ---
 
-class: left,center
+class: left,middle
 
 ### Why should we migrate?
 
@@ -158,8 +162,6 @@ ISPs have been notoriously slow with the rollout. ISPs continue running IPv4 onl
 can't use it anyways. Eventually, we 
 
 ---
-
-class: left,middle
 
 .left-column66[
 ### Benefits of IPv6
@@ -220,9 +222,6 @@ will enable you to do P2P networking _without_ requiring ugly hacks such as port
 * IPv6 addresses are (practically) free.
 * World is moving towards IPv6, lagging after may be bad!
 * Large downside: transitioning takes quite some time & effort.
-
-???
-
 
 ---
 .left-column66[
