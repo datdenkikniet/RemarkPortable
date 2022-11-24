@@ -39,7 +39,7 @@ class: left,middle
 # Index
 * A quick introduction to IP, IPv4, and IPv6.
 * Some networking lingo.
-* Why should we migrate?
+* Why migrate to IPv6?
 * The improvements that IPv6 offers over IPv4
     * The protocol.
     * Network management.
@@ -76,10 +76,10 @@ IPv5: experimental standard that tried to expand IPv4, only by means of extra pr
 .right-column[
 * Standard published in 1981.
 * Address space: 32 bits, for a total of $$2^{32} = 4.3 billion$$ addresses.
-* Non-extendable header.
 * Price for a single public IPv4 address: 50 USD.
 * Universally deployed & supported.
 * Individual addresses easy to remember.
+    * Format: A.A.A.A where A is a number from 0 to 255.
 ]
 
 ???
@@ -99,10 +99,14 @@ Defense Advanced Research Projects Agency (DARPA)
 .right-column[
 * Standard published in 1995.
 * "New", but not that different.
-* Address space: 128 bits, for a total of $$2^{128} = 3.4 x 10^{28} = 340 unidecillion$$ addresses (a _lot_)
-* Extension headers.
+* Address space: 128 bits, for a total of $$2^{128} = 3.4 * 10^{28} = 340\ unidecillion$$ addresses (a _lot_)
 * Price for a single IPv6 address: free.
 * Universally supported & widely deployed in enterprise setting, but lower deployment & support for end-users.
+* Longer addresses may be more difficult to remember (even with concise notation).
+    * Format: AAAA:AAAA:AAAA:AAAA:AAAA:AAAA:AAAA:AAAA where A is a hexadecimal digit.
+    * Concise notation: longest block of contiguous 0's may be shortened, leading 0's left out.
+    * Example: `2001:2043:1423:0000:0000:0000:0000:0001`
+      can be shortened to `2001:2043:1432::1`
 ]
 
 ???
@@ -133,33 +137,41 @@ class: left,middle
 Network mask: a mask that indicates which of the bits in an address make up the network part of the address, and which bits make up the host part.
 A private address is an IP address that is barred from being routed on the public internet. Public addresses, on the other hand, are addresses that _can_ be routed on
 the internet.
+
 Address space depletion.
+
 Network Address Translation, also known as NAT. It is a technique that can be used to map multiple private IP addresses to a single public IP, so that machines
 using private IP addresses can still talk to the rest of the internet.
+
 NAT is a workaround, and requires more workarounds. It usually works for the consumer, but diagnosing problems with it is hard, as it hides the true origin
 and destination of network traffic, unless you have access to the stateful NAT table in the device performing NAT.
+
 NAT reflection. If two devices are on the same private network, behind a device that performs NAT, connecting to the public address requires that
 the device that performs NAT is somehow involved in the exchange.
+
 With NAT, P2P networking is practically impossible. Multiple nodes can only be reached by multiplexing over different ports on the transport layer (TCP & UDP), making
 it impossible for those numbers to be predictable unless they are coordinated in some always-online, centralized system. P2P may decrease traffic through bottlenecked
 connections.
-Important: NAT != secure (only if you trust your ISP more than a VPN provider).
+
+Important: NAT does not add security, only if you trust your ISP more than a VPN provider. Basically security by obscurity.
 
 ---
 
 class: left,middle
 
-### Why should we migrate?
+### Why migrate to IPv6?
 
 * IPv6 is the future: combats shortcomings of IPv4.
     * More detail to come.
     * Biggest problem of all: IPv4 address space depletion. Requires workarounds layered on top of workarounds.
-* Catch 22: ISPs don't migrate because businesses don't, businesses don't migrate because ISPs don't.
+* Predictable reachability means that P2P networking works.
+* VPNs no longer necessary for non-security related purposes.
+* Catch-22: ISPs don't migrate because businesses don't, businesses don't migrate because ISPs don't.
 
 ???
 
 ISPs have been notoriously slow with the rollout. ISPs continue running IPv4 only, as it works for them, preventing businesses from adopting IPv6, because customers
-can't use it anyways. Eventually, we 
+can't use it anyways.
 
 ---
 
@@ -172,9 +184,9 @@ can't use it anyways. Eventually, we
     * Neighbour Discovery Protocol.
     * Duplicate Address Detection.
     * Stateless Automatic Address Configuration.
-* No more broadcast traffic.
-* Host network size standardized to `/64`
-* Extension headers
+* No more broadcast traffic, more focus on multicast.
+* Host network size standardized to `/64`.
+* Extension headers.
 
 ???
 
@@ -209,19 +221,31 @@ will enable you to do P2P networking _without_ requiring ugly hacks such as port
 * Reduced global routing table. (From 500000 routed prefixes down to 21000)
 
 ---
+.left-column66[
+### Benefits of IPv6
+#### The protocol
+#### Network management
+#### For the internet
+#### Security
+]
+
+* IPv6 natively supports IPSec.
+
+---
 
 .left-column66[
 ### Benefits of IPv6
 #### The protocol
 #### Network management
 #### For the internet
+#### Security
 #### For a business
 ]
 
 * Less work overall.
 * IPv6 addresses are (practically) free.
 * World is moving towards IPv6, lagging after may be bad!
-* Large downside: transitioning takes quite some time & effort.
+* Downside: transitioning may take some time & effort.
 
 ---
 .left-column66[
@@ -236,6 +260,20 @@ will enable you to do P2P networking _without_ requiring ugly hacks such as port
 ![](https://www.researchgate.net/profile/Gabor-Lencse/publication/299405560/figure/fig3/AS:667671179849730@1536196622082/The-operation-of-the-DNS64-NAT64-solution-an-IPv6-only-client-communicates-with-and-IPv4.png)
 
 ---
+
+class: left,middle
+
+.left-column66[
+### Migrating to IPv6
+#### NAT64
+]
+
+![](./assets/images/dns4.jpg)
+
+![](./assets/images/dns64.jpg)
+
+
+---
 .left-column66[
 ### Migrating to IPv6
 #### NAT64
@@ -243,7 +281,7 @@ will enable you to do P2P networking _without_ requiring ugly hacks such as port
 ]
 
 * Hosts have both IPv4 and IPv6 addresses.
-* IPv4 addresses are mapped to and from IPv6 addresses by the OS.
+* IPv4 traffic is mapped to and from IPv6 traffic by the OS.
 * Uses the range `0:0:0:0:0:ffff/96`.
 * Dual stack may mean more network to look after, but lower barrier to entry.
 
