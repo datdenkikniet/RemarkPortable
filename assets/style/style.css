@@ -120,3 +120,7 @@ h3 {
     position: absolute;
     display: block;
 }
+
+img {
+    max-width: 800px;
+}

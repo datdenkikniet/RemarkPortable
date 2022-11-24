@@ -22,7 +22,7 @@ class: center, middle
 # IPv6: Networking of the future!
 ##### A blast from the past!
 
-#### By: Johannes Draaijer @ Mobilaris AB
+#### By: Johannes Draaijer & Kristoffer Ödmark @ Mobilaris AB
 
 ---
 
@@ -106,16 +106,26 @@ Defense Advanced Research Projects Agency (DARPA)
 * Price for a single IPv6 address: free.
 * Universally supported & widely deployed in enterprise setting, but lower deployment & support for end-users.
 * Longer addresses may be more difficult to remember (even with concise notation).
-    * Format: AAAA:AAAA:AAAA:AAAA:AAAA:AAAA:AAAA:AAAA where A is a hexadecimal digit.
-    * Concise notation: longest block of contiguous 0's may be shortened, leading 0's left out.
-    * Example: `2001:2043:1423:0000:0000:0000:0000:0001`
-      can be shortened to `2001:2043:1432::1`
 ]
 
 ???
 
 IPv6 is supported by most newer devices (mobile phones & 4G, enterprise gear, etc.) and used in mobile networks. Older consumer devices may not support it.
 
+---
+
+.left-column[
+## What is IP?
+## IPv4
+## IPv6
+]
+
+.right-column[
+* Format: AAAA:AAAA:AAAA:AAAA:AAAA:AAAA:AAAA:AAAA where A is a hexadecimal digit.
+* Concise notation: longest block of contiguous 0's may be shortened, leading 0's left out.
+* Example: `2001:2043:1423:0000:0000:0000:0000:0001`
+  can be shortened to `2001:2043:1432::1`
+]
 ---
 
 class: left,middle
@@ -158,11 +168,62 @@ connections.
 
 Important: NAT does not add security, only if you trust your ISP more than a VPN provider. Basically security by obscurity.
 
+P2P is important because it can help with decentralization. Instead of being required to send your important message
+via some third party, you can send the information directly to the intended recipient.
+
 ---
 
 ## NAT
 
-.img[![](./assets/images/vvdn-webrtc-1024x733.png)]
+![](./assets/images/nat/Slide1.jpg)
+
+---
+
+## NAT
+
+![](./assets/images/nat/Slide2.jpg)
+
+---
+
+## NAT
+
+![](./assets/images/nat/Slide3.jpg)
+
+---
+
+## NAT
+
+![](./assets/images/nat/Slide4.jpg)
+
+---
+
+## NAT
+
+![](./assets/images/nat/Slide5.jpg)
+
+---
+
+## NAT
+
+![](./assets/images/nat/Slide6.jpg)
+
+---
+
+## NAT
+
+![](./assets/images/nat/Slide7.jpg)
+
+---
+
+## NAT
+
+![](./assets/images/nat/Slide8.jpg)
+
+---
+
+## NAT
+
+![](./assets/images/nat/Slide9.jpg)
 
 ---
 
@@ -176,11 +237,14 @@ class: left,middle
 * Predictable reachability means that P2P networking works.
 * VPNs no longer necessary for non-security related purposes.
 * Catch-22: ISPs don't migrate because businesses don't, businesses don't migrate because ISPs don't.
+* Many Internet of Things devices are already IPv6-only.
 
 ???
 
 ISPs have been notoriously slow with the rollout. ISPs continue running IPv4 only, as it works for them, preventing businesses from adopting IPv6, because customers
 can't use it anyways.
+
+IPv6 only: smart lamps, Zigbee, 6LowPAN. Thread IoT, IPFS.
 
 ---
 
@@ -325,8 +389,9 @@ socket = openIpV6Socket("::", 80);
 * Easier to reason about.
 * Makes network management easier.
 * Much more plug-and-play.
-* Every IoT device uses it.
 * Possibilities for migration exist.
+
+???
 
 ---
 
