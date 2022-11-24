@@ -12,6 +12,11 @@
 
     <textarea id="source" style="visibility: hidden;">
 
+layout: true
+<img class="footer" src="./assets/images/mobilaris.png"></img>
+
+---
+
 class: center, middle
 
 # IPv6: Networking of the future!
@@ -33,7 +38,6 @@ class: left,middle
 
 ---
 
-layout: false
 class: left,middle
 
 # Index
@@ -43,7 +47,6 @@ class: left,middle
 * The improvements that IPv6 offers over IPv4
     * The protocol.
     * Network management.
-    * For the internet.
     * Security.
     * For a business.
 * Migrating to or supporting IPv6
@@ -53,7 +56,7 @@ class: left,middle
 ---
 
 .left-column[
-#### What is IP?
+## What is IP?
 ]
 
 .right-column[
@@ -64,13 +67,13 @@ class: left,middle
 
 ???
 
-IPv5: experimental standard that tried to expand IPv4, only by means of extra protocol support for streaming.
+IPv5: experimental standard that tried to expand IPv4, but did not add enough to become a real standard.
 
 ---
 
 .left-column[
-#### What is IP?
-#### IPv4
+## What is IP?
+## IPv4
 ]
 
 .right-column[
@@ -91,9 +94,9 @@ Defense Advanced Research Projects Agency (DARPA)
 ---
 
 .left-column[
-#### What is IP?
-#### IPv4
-#### IPv6
+## What is IP?
+## IPv4
+## IPv6
 ]
 
 .right-column[
@@ -127,10 +130,10 @@ class: left,middle
     * `fe80::/10` in IPv6 (link local).
 * Address space depletion.
 * Network Address translation.
+    * Port forwarding.
     * NAT reflection.
     * P2P networking practically impossible.
-
-![](https://integratingit.files.wordpress.com/2021/07/071121_1331_ftdnatrefle1.png)
+* Network allocation.
 
 ???
 
@@ -157,9 +160,15 @@ Important: NAT does not add security, only if you trust your ISP more than a VPN
 
 ---
 
+## NAT
+
+.img[![](./assets/images/vvdn-webrtc-1024x733.png)]
+
+---
+
 class: left,middle
 
-### Why migrate to IPv6?
+## Why migrate to IPv6?
 
 * IPv6 is the future: combats shortcomings of IPv4.
     * More detail to come.
@@ -176,8 +185,8 @@ can't use it anyways.
 ---
 
 .left-column66[
-### Benefits of IPv6
-#### The protocol
+## Benefits of IPv6
+### The protocol
 ]
 
 * More all-encompassing standardization.
@@ -192,18 +201,22 @@ can't use it anyways.
 
 Important: mention that addresses are no longer rare, so you should use the bits you have!
 
+Because it's easier to implement, many constrainted resource IoT devices (smart lamps, newer smart fridges, home assistants)
+already use IPv6.
+
 ---
 
 .left-column66[
-### Benefits of IPv6
-#### The protocol
-#### Network management
+## Benefits of IPv6
+### The protocol
+### Network management
 ]
 
 * No more NAT.
 * SLAAC, NDP, DAD mean more plug-and-play configuration.
 * More opportunity for global reachability.
 * No more broadcast traffic.
+* Reduced global routing table. (From 500000 routed prefixes down to 21000)
 
 ???
 
@@ -212,21 +225,10 @@ will enable you to do P2P networking _without_ requiring ugly hacks such as port
 
 ---
 .left-column66[
-### Benefits of IPv6
-#### The protocol
-#### Network management
-#### For the internet
-]
-
-* Reduced global routing table. (From 500000 routed prefixes down to 21000)
-
----
-.left-column66[
-### Benefits of IPv6
-#### The protocol
-#### Network management
-#### For the internet
-#### Security
+## Benefits of IPv6
+### The protocol
+### Network management
+### Security
 ]
 
 * IPv6 natively supports IPSec.
@@ -234,12 +236,11 @@ will enable you to do P2P networking _without_ requiring ugly hacks such as port
 ---
 
 .left-column66[
-### Benefits of IPv6
-#### The protocol
-#### Network management
-#### For the internet
-#### Security
-#### For a business
+## Benefits of IPv6
+### The protocol
+### Network management
+### Security
+### For a business
 ]
 
 * Less work overall.
@@ -249,23 +250,23 @@ will enable you to do P2P networking _without_ requiring ugly hacks such as port
 
 ---
 .left-column66[
-### Migrating to IPv6
-#### NAT64
+## Migrating to IPv6
+### NAT64
 ]
 
 * Uses the address range range `64:ff9b::/96`.
 * Requires DNS64 setup that returns IPv4 addresses mapped into that range.
 * Stateful.
 
-![](https://www.researchgate.net/profile/Gabor-Lencse/publication/299405560/figure/fig3/AS:667671179849730@1536196622082/The-operation-of-the-DNS64-NAT64-solution-an-IPv6-only-client-communicates-with-and-IPv4.png)
+![](./assets/images/nat.png)
 
 ---
 
 class: left,middle
 
 .left-column66[
-### Migrating to IPv6
-#### NAT64
+## Migrating to IPv6
+### NAT64
 ]
 
 ![](./assets/images/dns4.jpg)
@@ -275,9 +276,9 @@ class: left,middle
 
 ---
 .left-column66[
-### Migrating to IPv6
-#### NAT64
-#### Dual stack
+## Migrating to IPv6
+### NAT64
+### Dual stack
 ]
 
 * Hosts have both IPv4 and IPv6 addresses.
@@ -288,9 +289,9 @@ class: left,middle
 ---
 
 .left-column66[
-### Migrating to IPv6
-#### NAT64
-#### Dual stack
+## Migrating to IPv6
+### NAT64
+### Dual stack
 ]
 
 Before: 
@@ -298,6 +299,14 @@ Before:
 socket = openIpv4Socket("0.0.0.0", 80);
 ```
 Allows only IPv4 clients to connect, node is required to have only IPv4 address.
+
+---
+
+.left-column66[
+## Migrating to IPv6
+### NAT64
+### Dual stack
+]
 
 After:
 ```
@@ -307,6 +316,17 @@ socket = openIpV6Socket("::", 80);
 2. If node has IPv4 address & OS has dual-stack support, allows IPv4 clients to connect.
     * IPv4 client from 155.132.142.33 will appear to connect as `::ffff:9b84:8f21`.
 3. Done!
+
+---
+
+## Summary
+
+* Faster, uses fewer resources with more addresses.
+* Easier to reason about.
+* Makes network management easier.
+* Much more plug-and-play.
+* Every IoT device uses it.
+* Possibilities for migration exist.
 
 ---
 

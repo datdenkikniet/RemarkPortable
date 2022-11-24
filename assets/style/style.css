@@ -1,20 +1,25 @@
 @font-face {
     font-family: 'Droid Serif';
-    src: url('./fonts/DroidSerif.ttf');
+    src: url('../fonts/DroidSerif.ttf');
 }
 
 @font-face {
     font-family: 'Yanone Kaffeesatz';
-    src: url('./fonts/YanoneKaffeesatz.otf');
+    src: url('../fonts/YanoneKaffeesatz.otf');
 }
 
 @font-face {
     font-family: 'Ubuntu Mono';
-    src: url('./fonts/UbuntuMono.ttf');
+    src: url('../fonts/UbuntuMono.ttf');
+}
+
+@font-face {
+    font-family: "Galano Grotesque";
+    src: url('../fonts/galano.otf')
 }
 
 body {
-    font-family: 'Droid Serif';
+    font-family: 'Galano Grotesque' !important;
 }
 
 h1,
@@ -87,11 +92,31 @@ h3 {
     color: black;
 }
 
-.remark-slide-container h4 {
+.remark-slide-container h3 {
     color: gray;
 }
 
-
-.remark-slide-container h4:last-of-type {
+.remark-slide-container h3:last-of-type {
     color: black;
+}
+
+.remark-slide-container h2 {
+    color: gray;
+}
+
+.remark-slide-container h2:last-of-type {
+    color: black;
+}
+
+.remark-slide-number {
+    bottom: 24px;
+    line-height: 12px;
+}
+
+.footer {
+    bottom: 10px;
+    left: 20px;
+    height: 36px;
+    position: absolute;
+    display: block;
 }
