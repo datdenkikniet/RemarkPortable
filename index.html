@@ -37,6 +37,7 @@ class: left,middle
 # Index
 * A quick introduction to IP, IPv4, and IPv6.
 * Some networking lingo.
+* Why should we migrate?
 * The improvements that IPv6 offers over IPv4
     * The protocol.
     * Network management.
@@ -74,6 +75,10 @@ class: left,middle
 * Universally deployed & supported.
 ]
 
+???
+
+Practically any device that has internet access supports IPv4. Smart TVs, computers, phones, other IoT devices, anything that supports WiFi, etc. 
+
 ---
 
 .left-column[
@@ -88,30 +93,14 @@ class: left,middle
 * Address space: 128 bits, for a total of $$2^{128} = 3.4 x 10^{28} = 340 unidecillion$$ addresses (a _lot_)
 * Extension headers.
 * Price for a single IPv6 address: free.
-* Universally supported & widely deployed in enterprise setting, but lower deployment & support in consumer environments.
+* Universally supported & widely deployed in enterprise setting, but lower deployment & support for end-users.
 ]
----
-
-.left-column66[
-### Benefits of IPv6
-#### The protocol
-]
-
-* More all-encompassing standardization.
-    * Neighbour Discovery Protocol.
-    * Duplicate Address Detection.
-    * Stateless Automatic Address Configuration.
-* No more broadcast traffic.
-* Host network size standardized to `/64`
-* Extension headers
 
 ???
 
-Important: mention that addresses are no longer rare, so you should use the bits you have!
+IPv6 is supported by most newer devices (mobile phones & 4G, enterprise gear, etc.) and used in mobile networks. Older consumer devices may not support it.
 
----
-
-class: left,middle
+--- 
 
 ## Some networking lingo
 
@@ -154,6 +143,43 @@ Important: NAT != secure (only if you trust your ISP more than a VPN provider).
 
 ---
 
+class: left,center
+
+### Why should we migrate?
+
+* IPv6 is the future: combats shortcomings of IPv4.
+    * More detail to come.
+    * Biggest problem of all: IPv4 address space depletion. Requires workarounds layered on top of workarounds.
+* Catch 22: ISPs don't migrate because businesses don't, businesses don't migrate because ISPs don't.
+
+???
+
+ISPs have been notoriously slow with the rollout. ISPs continue running IPv4 only, as it works for them, preventing businesses from adopting IPv6, because customers
+can't use it anyways. Eventually, we 
+
+---
+
+class: left,middle
+
+.left-column66[
+### Benefits of IPv6
+#### The protocol
+]
+
+* More all-encompassing standardization.
+    * Neighbour Discovery Protocol.
+    * Duplicate Address Detection.
+    * Stateless Automatic Address Configuration.
+* No more broadcast traffic.
+* Host network size standardized to `/64`
+* Extension headers
+
+???
+
+Important: mention that addresses are no longer rare, so you should use the bits you have!
+
+---
+
 .left-column66[
 ### Benefits of IPv6
 #### The protocol
@@ -166,6 +192,9 @@ Important: NAT != secure (only if you trust your ISP more than a VPN provider).
 * No more broadcast traffic.
 
 ???
+
+Opportunity for global reachability does _not_ mean that everything is globally reachable by default. It is still important to configure your firewall properly, but
+will enable you to do P2P networking _without_ requiring ugly hacks such as port-forwarding.
 
 ---
 .left-column66[
@@ -194,7 +223,6 @@ Important: NAT != secure (only if you trust your ISP more than a VPN provider).
 
 ???
 
-Explain chicken-and-egg problem with switching to IPv6.
 
 ---
 .left-column66[
